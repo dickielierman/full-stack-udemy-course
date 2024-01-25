@@ -1,0 +1,146 @@
+body {
+  font-family: 'Poppins', sans-serif;
+  margin: 50px 50px 0 50px;
+  background-color: #faf9f6;
+  display: flex;
+  flex-direction: column;
+  min-height: 95vh;
+}
+.main {
+  flex: 1;
+}
+
+h1 {
+  font-size: 5rem;
+}
+
+footer {
+  text-align: right;
+  color: midnightblue;
+}
+
+/* Default styles that apply to all screen sizes */
+
+/* Media query for small screens (e.g., smartphones) */
+@media only screen and (max-width: 767px) {
+  h1 {
+    font-size: 3.5em;
+  }
+  .creative-color {
+    color: rgb(161, 26, 26);
+  }
+  .tile-image {
+    padding: 20px;
+  }
+  .card {
+    margin-bottom: 50px;
+  }
+  .tile-image {
+    width: 100%;
+    margin: 0;
+    padding: 0;
+  }
+  .card-title {
+    font-size: 3em;
+    margin: 0;
+  }
+}
+
+/* Media query for medium-sized screens (e.g., tablets) */
+@media only screen and (min-width: 768px) and (max-width: 991px) {
+  h1 {
+    font-size: 3rem;
+    width: 100%;
+  }
+  .creative-color {
+    color: rgb(50, 155, 1);
+  }
+  .tile-image {
+    width: 100%;
+  }
+  .card {
+    float: left;
+  }
+  .card-title {
+    margin: 0;
+  }
+  .left {
+    width: 47.5%;
+    padding: 2.5% 2.5% 2.5% 0;
+  }
+  .right {
+    width: 47.5%;
+    padding: 2.5% 0 2.5% 2.5%;
+  }
+}
+
+/* Media query for large screens (e.g., desktops) */
+@media only screen and (min-width: 992px) and (max-width: 1499px) {
+  h1 {
+    font-size: 4rem;
+    width: 66%;
+  }
+  .creative-color {
+    color: salmon;
+  }
+  .tile-image {
+    width: 33%;
+    float: left;
+    padding: 20px;
+  }
+  .card {
+    width: 50%;
+    float: left;
+  }
+  .tile-image,
+  .card-title,
+  .card > p {
+    width: 40%;
+    float: left;
+    padding: 2.5%;
+  }
+  .card-title {
+    margin: 0;
+    padding-top: 0;
+  }
+  .card > p {
+    margin-top: 0;
+    padding-top: 0;
+  }
+}
+
+/* Media query for large screens (e.g., desktops) */
+@media only screen and (min-width: 1500px) {
+  h1 {
+    font-size: 4rem;
+    width: 33%;
+  }
+  .creative-color {
+    color: purple;
+  }
+  .tile-image {
+    width: 33%;
+    float: left;
+    padding: 20px;
+  }
+  .card {
+    width: 50%;
+    float: left;
+  }
+  .tile-image {
+    width: 30%;
+    float: left;
+    padding: 1.5%;
+  }
+  .card-title {
+    padding: 0px 3%;
+    width: 60%;
+    display: inline-block;
+  }
+  .card > p {
+    float: left;
+    width: 60%;
+    padding: 5px 3%;
+    margin: 0px;
+  }
+}

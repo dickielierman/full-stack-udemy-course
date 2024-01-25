@@ -1,0 +1,77 @@
+@keyframes animatedBackground {
+  from {
+    background-position: 0% 0%;
+  }
+  to {
+    background-position: 100% 0%;
+  }
+}
+
+@keyframes animatedBackground2 {
+  from {
+    background-position: 100% 0%;
+  }
+  to {
+    background-position: 0% 0%;
+  }
+}
+
+@keyframes animatedBackground3 {
+  from {
+    background-position: 0% 5%;
+  }
+  to {
+    background-position: 0% 10%;
+  }
+}
+
+body {
+  background-color: #bbb;
+}
+
+.main-page-bg {
+  background-image: url('./assets/images/dickiedanger._a_dary_grey_techno_textured_background_8d1419ae-ea3c-4441-811f-b4bb8e7c95ae.png');
+  background-position: 100% 0%;
+  height: 100%;
+  animation: animatedBackground 5s ease-out 1 normal;
+}
+.skills-bg {
+  background-image: url('./assets/images/dickiedanger._a_flat_grey_website_background_image_with_light_t_40e1a9a0-073f-4686-814f-764bad492625.png');
+  background-position: 0% 0%;
+  height: 100%;
+  animation: animatedBackground2 5s ease-out 1 normal;
+}
+.work-history-bg {
+  background-image: url('./assets/images/dickiedanger._black_polygonal_abstract_patterns_with_hints_of_g_e5d97715-bccd-4d2a-af79-7a720a246728.png');
+  background-position: 0% 10%;
+  height: 100%;
+  animation: animatedBackground3 5s ease-out 1 normal;
+}
+
+.hero-wrapper {
+  background: linear-gradient(90deg, rgba(0, 0, 0, 1) 0%, rgba(0, 0, 0, 0) 100%);
+}
+
+.feature-icon {
+  width: 4rem;
+  height: 4rem;
+  border-radius: 0.75rem;
+}
+
+.list-group-item {
+  background-color: #cbcbcb;
+  border: var(--bs-list-group-border-width) solid #bbb;
+}
+
+.accordion-button:not(.collapsed) {
+  background-color: #ffc107;
+  border: none;
+  outline: none;
+}
+.accordion-button:focus {
+  box-shadow: none;
+}
+.udemy-logo,
+.linkedin-logo {
+  max-height: 100px;
+}

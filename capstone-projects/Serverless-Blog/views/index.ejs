@@ -1,0 +1,13 @@
+<%- include('partials/header.ejs') %>
+  <%- include('partials/nav-bar.ejs') %>
+
+    <!-- blog display -->
+    <%- include('partials/blog/blog-hero.ejs', {post: blogs[0]}) %>
+      <div class="row mb-2">
+        <% blogs.slice(1).forEach(post=>{%>
+          <%- include('partials/blog/blog-mini-hero.ejs', {post: post}) %>
+            <%})%>
+      </div>
+
+
+      <%- include('partials/footer.ejs') %>

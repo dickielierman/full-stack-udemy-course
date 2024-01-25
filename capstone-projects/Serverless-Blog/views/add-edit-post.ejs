@@ -1,0 +1,43 @@
+<%- include('partials/header.ejs') %>
+  <%- include('partials/nav-bar.ejs') %>
+    <div class="container mt-5">
+      <h2>
+        <%= pageTitle %>
+      </h2>
+      <form id="blogEntryForm" action="/add-edit-post" method="POST">
+        <div class="mb-3">
+          <label for="title" class="form-label">Title</label>
+          <input type="text" class="form-control" value="<%= locals.postData ? postData.title : ''; %>" id="title"
+            name="title" required>
+        </div>
+        <div class="mb-3">
+          <label for="title" class="form-label">Meta Title</label>
+          <input type="text" class="form-control" value="<%= locals.postData ? postData.metaTitle : ''; %>"
+            id="metaTitle" name="metaTitle" required>
+        </div>
+        <div class="mb-3">
+          <label for="summary" class="form-label">Summary</label>
+          <input type="text" class="form-control" value="<%= locals.postData ? postData.summary : ''; %>" id="summary"
+            name="summary" required>
+        </div>
+        <div class="mb-3">
+          <label for="content" class="form-label">Content</label>
+          <textarea class="form-control" id="content" name="content" rows="6"
+            required><%= locals.postData ? postData.content : '' %></textarea>
+        </div>
+        <div class="mb-3 form-check">
+          <input type="checkbox" value="<%= locals.postData ? postData.published : ''; %>" <%=locals.postData &&
+            locals.postData.published==true ? 'checked' : '' %> class="form-check-input"
+          id="published" name="published">
+          <label class="form-check-label" for="published">Published</label>
+        </div>
+        <input type="hidden" id="action" name="action" value="<%= locals.postData ? 'edit' : 'new'; %>">
+        <% if(locals.postData){%>
+          <input type="hidden" id="postId" name="postId" value="<%= postData.id %>">
+          <%}%>
+            <button type="submit" class="btn btn-primary">
+              <%= pageTitle %>
+            </button>
+      </form>
+    </div>
+    <%- include('partials/footer.ejs') %>

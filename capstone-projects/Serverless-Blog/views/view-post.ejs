@@ -1,0 +1,24 @@
+<%- include('partials/header.ejs') %>
+  <%- include('partials/nav-bar.ejs') %>
+    <div class="container">
+      <article class="blog-post">
+        <h2 class="display-5 link-body-emphasis mb-1">
+          <%= post.title %>
+        </h2>
+        <p class="blog-post-meta">
+          <%= new Date(post.publishedAt).toDateString() %> by <a href="#">
+              <%= post.authorId %>
+            </a>
+        </p>
+
+        <p>
+          <%= post.content %>
+        </p>
+      </article>
+    </div>
+
+
+
+
+
+    <%- include('partials/footer.ejs') %>

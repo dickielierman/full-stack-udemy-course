@@ -1,0 +1,21 @@
+{
+  "name": "3.3-middleware",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
+    "test1": "nodemon index1.js",
+    "test2": "nodemon index2.js",
+    "test3": "nodemon index3.js",
+    "test4": "nodemon index4.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "body-parser": "^1.20.2",
+    "express": "^4.18.2",
+    "morgan": "^1.10.0"
+  }
+}
