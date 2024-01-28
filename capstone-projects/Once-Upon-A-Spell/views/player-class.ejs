@@ -1,0 +1,49 @@
+<%- include("partials/header.ejs") %>
+<a href="/" class="home-button">
+  <img src="/images/home.png" alt="home button">
+</a>
+<% function getSpellsByLevel(spellList, targetLevel) { return spellList.filter(spell=> (spell.data.level || 0) ===
+    targetLevel);
+    }%>
+<div class="bg-container <%= playerClass %>-bg min-vh-100 pt-3 d-flex flex-column align-items-center">
+  <div class="d-flex <%= locals.total == 0 ? 'position-absolute' : ''%>">
+    <h1 class="display-1 text-capitalize text-white myShadow">
+      <%= playerClass %>
+    </h1>
+  </div>
+  <% if(locals.total == 0){ %>
+  <%- include("partials/no-spells.ejs") %>
+  <% }else{ %>
+  <div class="container">
+    <div class="accordion accordion-flush" style="--bs-bg-opacity: 0;" id="accordionExample">
+      <% for(let i=0; i <=9; i++){ %>
+      <%   if(getSpellsByLevel(spellList, i).length > 0){ %>
+      <div class="accordion-item">
+        <h2 class="accordion-header">
+          <button class="accordion-button collapsed fs-1 p-2 myShadow text-center" type="button"
+            data-bs-toggle="collapse" data-bs-target="#level<%= i %>Spells" aria-expanded="true"
+            aria-controls="level<%= i %>Spells">
+            <%= i == 0 ? 'Cantrips' : `Level ${i} Spells` %>
+          </button>
+        </h2>
+        <div id="level<%= i %>Spells" class="accordion-collapse collapse" data-bs-parent="#accordionExample">
+          <div class="accordion-body">
+            <ul class="list-group d-flex flex-row flex-wrap justify-content-between">
+              <% getSpellsByLevel(spellList, i).forEach((spell)=>{%>
+              <a href="#" class="list-group-item flex-fill col-lg-4 col-md-6 col-sm-12 me-auto p-0 myShadow"
+                aria-current="true" data-bs-toggle="modal" data-bs-target="#<%= spell.data.index %>">
+                <%= spell.name %>
+              </a>
+              <%- include("partials/spell-modal.ejs", {spell: spell.data}) %>
+              <% })%>
+            </ul>
+          </div>
+        </div>
+      </div>
+      <% }%>
+      <% }%>
+    </div>
+  </div>
+  <% } %>
+</div>
+<%- include("partials/footer.ejs") %>

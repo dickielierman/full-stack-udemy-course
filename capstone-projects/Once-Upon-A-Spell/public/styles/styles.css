@@ -1,0 +1,196 @@
+/* Glow Animation Keyframes */
+@-webkit-keyframes glow {
+  from {
+    text-shadow: 0 0 10px #fff4b7, 0 0 20px #fff4b7, 0 0 30px #e60000, 0 0 40px #e60000, 0 0 50px #e60000, 0 0 60px #e60000, 0 0 70px #e60000;
+  }
+  to {
+    text-shadow: 0 0 20px #fff4b7, 0 0 30px #ffc14d, 0 0 40px #ffc14d, 0 0 50px #ffc14d, 0 0 60px #ffc14d, 0 0 70px #ffc14d, 0 0 80px #ffc14d;
+  }
+}
+
+/* Accordion Styles */
+.accordion {
+  --bs-accordion-bg: #fff0;
+}
+
+.accordion-button:not(.collapsed) {
+  color: #ffdb3a;
+  -webkit-animation: glow 1s ease-in-out infinite alternate;
+  -moz-animation: glow 1s ease-in-out infinite alternate;
+  animation: glow 1s ease-in-out infinite alternate;
+  background-color: transparent;
+  box-shadow: none;
+}
+
+.accordion-button:focus {
+  border: 0;
+  box-shadow: none;
+}
+
+.accordion-flush .accordion-item {
+  border-bottom: 0;
+}
+
+.accordion-header button {
+  color: #ffffff;
+}
+
+.accordion-header button:hover {
+  color: #ffdb3a;
+  -webkit-animation: glow 1s ease-in-out infinite alternate;
+  -moz-animation: glow 1s ease-in-out infinite alternate;
+  animation: glow 1s ease-in-out infinite alternate;
+}
+
+/* Background Container Styles */
+.bg-container {
+  background-position: top center;
+  background-size: cover;
+  text-align: center;
+}
+
+/* Specific Background Styles */
+.barbarian-bg {
+  background-image: url('../images/barbarian.png');
+}
+
+.bard-bg {
+  background-image: url('../images/bard.png');
+}
+
+.cleric-bg {
+  background-image: url('../images/cleric.png');
+}
+
+.druid-bg {
+  background-image: url('../images/druid.png');
+}
+
+.fighter-bg {
+  background-image: url('../images/fighter.png');
+}
+
+.home-bg {
+  background-image: url('../images/background-01.png');
+}
+
+.monk-bg {
+  background-image: url('../images/monk.png');
+}
+
+.paladin-bg {
+  background-image: url('../images/paladin.png');
+}
+
+.ranger-bg {
+  background-image: url('../images/ranger.png');
+}
+
+.rogue-bg {
+  background-image: url('../images/rogue.png');
+}
+
+.sorcerer-bg {
+  background-image: url('../images/sorcerer.png');
+}
+
+.warlock-bg {
+  background-image: url('../images/warlock.png');
+}
+
+.wizard-bg {
+  background-image: url('../images/wizard.png');
+}
+
+/* Card Styles */
+.card {
+  background-color: #000000a1;
+}
+
+.card-img {
+  opacity: 0.5;
+}
+
+.card-img:hover {
+  opacity: 1;
+}
+
+/* Font Styles for Headings */
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: 'MedievalSharp', cursive;
+}
+
+/* Head Section Styles */
+.head-section {
+  background: linear-gradient(to top, transparent 0%, black 100%);
+}
+
+/* Glow Animation Styles */
+.glow {
+  font-size: 80px;
+  color: #fff;
+  text-align: center;
+  -webkit-animation: glow 1s ease-in-out infinite alternate;
+  -moz-animation: glow 1s ease-in-out infinite alternate;
+  animation: glow 1s ease-in-out infinite alternate;
+}
+
+/* Home Button Styles */
+.home-button {
+  position: absolute;
+  right: 0;
+  top: 0;
+}
+
+.home-button img {
+  margin-top: 20px;
+  margin-right: 20px;
+  max-height: 200px;
+}
+
+/* List Group Styles */
+.list-group {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  grid-template-rows: repeat(3, auto);
+  gap: 1px;
+  list-style: none;
+  padding: 0;
+}
+
+.list-group-item {
+  background-color: transparent;
+  border: 0;
+  font-size: 1.7rem;
+  color: #fff;
+}
+
+/* List Styles */
+ul {
+  list-style: none;
+  padding-left: 0;
+}
+
+/* Medieval Font */
+.medieval {
+  font-family: 'MedievalSharp', cursive;
+}
+
+/* Shadow Styles */
+.myShadow {
+  text-shadow: 3px 0px 7px rgba(81, 67, 21, 0.8), -3px 0px 7px rgba(81, 67, 21, 0.8), 0px 4px 7px rgba(81, 67, 21, 0.8), 10px 10px 25px rgb(81, 67, 21),
+    -10px 10px 25px rgb(81, 67, 21), -10px -10px 25px rgb(81, 67, 21), 10px -10px 25px rgb(81, 67, 21);
+}
+
+/* Sorry Bud Section Styles */
+.sorry-bud {
+  height: 100%;
+  min-height: 100%;
+  display: flex;
+  flex-direction: column;
+}

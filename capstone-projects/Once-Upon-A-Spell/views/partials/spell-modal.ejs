@@ -1,0 +1,80 @@
+<div class="modal modal-xl fade text-start" id="<%= spell.index %>" tabindex="-1"
+  aria-labelledby="<%= spell.index %>Label" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h1 class="modal-title fs-5" id="<%= spell.index %>Label">
+          <%= spell.name+' - '+spell.school.name + ' - Level: ' + (spell.level==0 ? ' Cantrip' : spell.level)  %>
+        </h1>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body row">
+        <div class="col col-md-6">
+          <div>Range: <%= spell.range %></div>
+          <%if(spell.area_of_effect){%>
+          <div>Area of effect:
+            <%= spell.area_of_effect.size + 'ft ' +spell.area_of_effect.type %></div>
+          <%}%>
+          <div>Casting Time: <%= spell.casting_time %>
+        </div>
+        <div>Duration: <%= spell.duration %></div>
+        <% if(spell.material){ %>
+        <div>Material: <%= spell.material %></div>
+        <% } %>
+        <div>Components:
+          <ul>
+            <% spell.components.forEach(c=>{%>
+            <li><%= c=='V' ? 'Verbal' : c=='S' ? 'Somatic' : 'Material' %></li>
+            <% }) %>
+          </ul>
+        </div>
+        <div>Ritual: <%= spell.ritual ? 'Yes' : 'No' %></div>
+        <div>Concentration: <%= spell.concentration ? 'Yes' : 'No' %></div>
+      </div>
+      <div class="col col-md-6">
+        <% if(spell.dc){%>
+        <div>DC: <span class="text-capitalize"><%= spell.dc.dc_type.index %></span></div>
+        <% if(spell.dc.dc_success && !['none', 'None'].includes(spell.dc.dc_success)){ %>
+        <div>DC Success: <span class="text-capitalize"><%= spell.dc.dc_success %></span></div>
+        <% } %>
+        <% if(spell.dc.desc){ %>
+        <div>DC Description:<%= spell.dc.desc %></div>
+        <% } %>
+        <% }%>
+        <%if(spell.damage){%>
+        <%if(spell.damage.damage_at_slot_level){%>
+        <div>Damage:
+          <ul>
+            <% for (const [level, damage] of Object.entries(spell.damage.damage_at_slot_level)) { %>
+            <li><%= damage + ' at level ' + level %></li>
+            <% } %>
+          </ul>
+        </div>
+        <%}%>
+          <%if(spell.damage.damage_type){%>
+        <div>Damage Type: <%= spell.damage.damage_type.name %> damage</div>
+        <%}%>
+        <%}%>
+      </div>
+      <div class="mt-5">Description:
+        <% spell.desc.forEach(d=>{%>
+        <p><%= d %></p>
+        <% }) %>
+      </div>
+      <div>Classes that share this spell:
+        <ul class="list-inline">
+          <% spell.classes.forEach(c=>{%>
+          <li class="list-inline-item">
+            <a href="/<%= c.name.toLowerCase() %>"><%= c.name %></a>
+          </li>
+          <% }) %>
+        </ul>
+      </div>
+    </div>
+    <div class="modal-footer">
+      <%= spell.url %>
+      <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+    </div>
+  </div>
+</div>
+</div>

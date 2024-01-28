@@ -1,0 +1,23 @@
+<%- include("partials/header.ejs") %>
+<div class="bg-container home-bg">
+  <section class="py-5 text-center container-fluid head-section text-white">
+    <div class="row py-lg-5">
+      <div class="col-lg-6 col-md-8 mx-auto">
+        <h1 class="display-1 glow">I Said Cast Fireball!</h1>
+        <p class="lead">This is just an app I made to look up spells for Dungeons & Dragons 5E.
+          This is for an api based app Udemy course capstone project, and all credit goes to the fine folks at <a
+            href="https://www.dnd5eapi.co/">www.dnd5eapi.co</a> for creating the amazing tool that provides all this
+          information, and the good folks at
+          <a href="https://getbootstrap.com/">getbootstrap.com</a> for creating the framework to build this app
+          quickly, and I can't leave out midjourny, which made all this art possible.
+        </p>
+        <p>
+          <a href="https://github.com/dickielierman" class="btn btn-primary my-2">github.com/dickielierman</a>
+          <a href="https://www.dnd5eapi.co/" class="btn btn-secondary my-2">www.dnd5eapi.co</a>
+        </p>
+      </div>
+    </div>
+  </section>
+  <%- include('partials/class-links-main-page.ejs', {playerClasses: playerClasses}) %>
+</div>
+<%- include("partials/footer.ejs") %>
