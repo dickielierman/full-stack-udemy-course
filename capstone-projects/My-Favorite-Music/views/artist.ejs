@@ -1,0 +1,26 @@
+<%- include('partials/header.ejs') %>
+<div lc-helper="background" class="container-fluid py-5 mb-4 d-flex justify-content-center text-white">
+  <div class="p-4 mb-4 lc-block col-xxl-7 col-lg-8 col-12 artist-hero-backdrop">
+    <div class="lc-block">
+      <div editable="rich">
+        <h2 class="fw-bolder display-3"><%= artistData.name %></h2>
+      </div>
+    </div>
+    <div class="row">
+      <div class="lc-block col-md-6">
+        <div editable="rich">
+          <img class="img-fluid" src="<%= artistData.picture_big %>" alt="<%= artistData.name %>">
+        </div>
+        <p class="lead mt-4 mb-0">
+          Albums: <%= artistData.nb_album %><br />
+          Fans on Deezer: <%= artistData.nb_fan %>
+        </p>
+      </div>
+      <div class="lc-block col-md-6">
+        <%- include('partials/blocks/artist-album-list.ejs', {artistAlbums: artistAlbums, favAlbums: favAlbums, artistData: artistData, myIndex: myIndex}) %>
+      </div>
+    </div>
+    <%- include('partials/blocks/artist-favorite-albums-cards.ejs', {favAlbums:favAlbums, artistData:artistData, myIndex:myIndex}) %>
+  </div>
+</div>
+<%- include('partials/footer.ejs') %>

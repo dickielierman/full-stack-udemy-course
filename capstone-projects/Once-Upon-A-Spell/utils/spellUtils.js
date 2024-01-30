@@ -1,5 +1,5 @@
-// utils/spellUtils.js
-export const sortSpells = (a, b) => {
+// Function to sort spells based on level and name
+const sortSpells = (a, b) => {
   const levelA = a.data.level || 0;
   const levelB = b.data.level || 0;
   const nameA = a.name.toLowerCase();

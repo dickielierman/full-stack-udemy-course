@@ -1,0 +1,24 @@
+<%# 
+EXPECTED DATA FORMAT
+ const data = {
+  action: '/album',
+  method: 'post',
+  wrapperClass: 'remove',
+  buttonClass: 'remove',
+  text: 'Delete',
+  hidden: [
+    {name: 'id', value:'asdf'},
+    {name: 'action', value:'add'},
+    {name: 'source', value:'/artist/434?index=21'}
+  ],
+ }
+%>
+<div class="site-button-wrapper <%= data.wrapperClass %>">
+  <form class="site-button-form d-flex flex-column justify-content-center align-items-center position-relative"
+    action="<%= data.action %>" method="<%= data.method %>">
+    <% data.hidden.forEach((d)=>{ %>
+    <input type="hidden" name="<%= d.name %>" value="<%= d.value %>">
+    <% }) %>
+    <button type="submit" class="site-button <%= data.buttonClass %>"><%= data.text %></button>
+  </form>
+</div>

@@ -1,26 +1,37 @@
+// Import required libraries
 import express from 'express';
 import bodyParser from 'body-parser';
 
+// Create an Express application
 const app = express();
 const port = 3000;
 
+// Serve static files from the 'public' directory
 app.use(express.static('public'));
 
+// Middleware to parse URL-encoded bodies
 app.use(bodyParser.urlencoded({ extended: true }));
 
+// Route to handle the home page (GET request)
 app.get('/', (req, res) => {
+  // Render the 'index.ejs' template
   res.render('index.ejs');
 });
 
+// Route to handle the form submission (POST request)
 app.post('/submit', (req, res) => {
+  // Generate random adjective and noun
   const randomAdj = adj[Math.floor(Math.random() * adj.length)];
   const randomNoun = noun[Math.floor(Math.random() * noun.length)];
+
+  // Render the 'index.ejs' template with random adjective and noun
   res.render('index.ejs', {
     adjective: randomAdj,
     noun: randomNoun,
   });
 });
 
+// Start the Express server
 app.listen(port, () => {
   console.log(`Listening on port ${port}`);
 });

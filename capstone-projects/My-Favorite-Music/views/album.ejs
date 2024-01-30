@@ -1,0 +1,39 @@
+<%- include('partials/header.ejs') %>
+<% 
+let genresListText = ''; 
+albumData.genres.data.forEach(genre =>{ 
+  genresListText = genresListText + genre.name + ', ' 
+}) 
+%>
+<div lc-helper="background" class="container-fluid py-5 mb-4 d-flex justify-content-center text-white">
+  <div class="p-4 mb-4 lc-block col-xxl-7 col-lg-8 col-12 artist-hero-backdrop">
+    <div class="lc-block">
+      <div editable="rich">
+        <h1 class="fw-bolder"><%= albumData.artist.name + ' - ' + albumData.title %></h1>
+      </div>
+    </div>
+    <div class="row">
+      <div class="lc-block col-md-6">
+        <div editable="rich" class="position-relative">
+          <img class="img-fluid" src="<%= albumData.cover_big %>" alt="<%= albumData.title %>">
+          <% if(albumData.explicit_lyrics){ %>
+          <img class="explicit-lyrics position-absolute" src="/images/Parental_Advisory_label.svg"
+            alt="parental advisory">
+          <% } %>
+        </div>
+        <p class="lead mt-4 mb-0">
+          Genre(s): <%= genresListText.slice(0, -2) %><br />
+          Label: <%= albumData.label %><br />
+          Release Date: <%= albumData.release_date %><br />
+          Release Type: <span class="text-capitalize"><%= albumData.record_type %></span><br />
+          Number of tracks: <%= albumData.nb_tracks %><br />
+          Run time: <%= albumData.duration %><br />
+        </p>
+      </div>
+      <div class="lc-block col-md-6">
+        <%- include('partials/blocks/album-song-list.ejs', {tracks: trackData, albumData: albumData, favTracks: favTracks}) %>
+      </div>
+    </div>
+  </div>
+</div>
+<%- include('partials/footer.ejs') %>

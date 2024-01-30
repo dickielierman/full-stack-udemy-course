@@ -1,7 +1,10 @@
 function whosPaying(names) {
-  /******Don't change the code above*******/
+  // Generate a random number between 0 (inclusive) and the length of the names array (exclusive)
   const randomNum = Math.floor(Math.random() * names.length);
+
+  // Return a string indicating who is going to buy lunch today
   return `${names[randomNum]} is going to buy lunch today!`;
-  /******Don't change the code below*******/
 }
+
+// Example usage with an array of names
 console.log(whosPaying(['Angela', 'Ben', 'Jenny', 'Michael', 'Chloe']));

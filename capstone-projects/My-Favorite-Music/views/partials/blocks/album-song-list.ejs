@@ -1,0 +1,36 @@
+<div class="d-flex flex-column justify-content-between">
+  <ul class="list-unstyled album-track-list">
+    <% tracks.forEach(track=>{ 
+      let btnClass = 'add'
+      let thisAction = 'add';
+      let textFavorite='';
+      let imgFavorite='';
+      if(favTracks.find(ft=> ft.deezer_id == track.id)){
+        btnClass = 'remove'
+        thisAction = 'delete';
+        textFavorite = ' text-favorite'
+        imgFavorite=' favorite';
+      }
+      const buttonData = {
+        action: '/track',
+        method: 'post',
+        wrapperClass: 'track-list',
+        buttonClass: btnClass + imgFavorite,
+        text: thisAction,
+        hidden: [
+          {name: 'track', value: track.deezer_id || track.id},
+          {name: 'action', value: thisAction},
+          {name: 'source', value: `/album/${albumData.deezer_id || albumData.id}`}
+        ]}
+      %>
+    <li class="d-flex justify-content-between">
+      <div class="col-lg-8 flex-grow-1 d-flex flex-column justify-content-center text-white">
+        <h6 class="mb-0<%= textFavorite %>"><%= track.track_position%>. <%= track.title%> -
+          <%= track.duration %></h6>
+      </div>
+      <%- include('../elements/siteButton.ejs', {data: buttonData}) %>
+    </li>
+    <hr />
+    <% }) %>
+  </ul>
+</div>

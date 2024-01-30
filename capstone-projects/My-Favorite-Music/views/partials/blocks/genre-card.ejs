@@ -1,0 +1,27 @@
+<% 
+let remove;
+if(locals.data.deezer_id){
+  remove = 'remove';
+}
+const buttonData = {
+  action: '/artist',
+  method: 'post',
+  wrapperClass: 'artist-actions',
+  buttonClass: remove || 'add',
+  text: remove || 'add',
+  hidden: [
+    {name: 'genre', value: genre.deezer_id},
+    {name: 'action', value: remove || 'add'},
+    {name: 'artist', value: data.deezer_id || data.id},
+    {name: 'source', value:`/genre/${genre.deezer_id}`}
+  ],
+ } %>
+<div class="col">
+  <a href="/artist/<%= data.deezer_id || data.id%>">
+    <div class="card shadow-lg">
+      <img class="img-fluid" src="<%= data.picture_big %>" alt="<%= data.name %>">
+      <%- include('../elements/siteButton.ejs', {data: buttonData}) %>
+      <div class="centered"><%= data.name %></div>
+    </div>
+  </a>
+</div>

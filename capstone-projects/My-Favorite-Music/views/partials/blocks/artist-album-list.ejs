@@ -1,0 +1,58 @@
+<div class="d-flex flex-column justify-content-between h-100">
+  <ul class="list-unstyled artist-albums-list">
+    <% artistAlbums.data.forEach(album=>{ 
+    let thisAction = 'add'; 
+    let favImg = '';
+    let artistID = artistData.deezer_id ? artistData.deezer_id : artistData.id
+    if(favAlbums.find(fa=> fa.deezer_id === album.id)){ thisAction = 'remove'; favImg = ' favorite'; }
+    const buttonData = {
+        action: '/album',
+        method: 'post',
+        wrapperClass: 'album-list',
+        buttonClass: thisAction + favImg,
+        text: thisAction,
+        hidden: [
+          {name: 'album', value: album.id},
+          {name: 'action', value: thisAction},
+          {name: 'source', value: `/artist/${artistID}?index=${myIndex}`}
+        ]} %>
+    <li>
+      <a class="d-flex flex-column flex-lg-row gap-3 align-items-start align-items-lg-center py-1 text-decoration-none  position-relative"
+        href="/album/<%= album.id %>">
+        <img class="img-fluid album-list-img" src="<%= album.cover_small%>" alt="<%= album.title%>">
+        <div class="col-lg-8 flex-grow-1">
+          <h6 class="mb-0 text-white"><%= album.title%> - <%= album.record_type%></h6>
+          <small class="text-white">Released: <%= album.release_date%></small>
+        </div>
+        <%- include('../elements/siteButton.ejs', {data: buttonData}) %>
+      </a>
+      <hr>
+    </li>
+    <% }) %>
+  </ul>
+  <div class="d-flex justify-content-between" id="album-navigation">
+    <% 
+    const previousData = {
+        action: '/artist/'+ (artistData.deezer_id || artistData.id),
+        method: 'post',
+        wrapperClass: 'prev-btn-wrapper me-auto',
+        buttonClass: 'previous',
+        text: 'back',
+        hidden: [{name: 'albumListData', value: artistAlbums.prev}],
+        }
+        const nextData = {
+        action: '/artist/'+ (artistData.deezer_id || artistData.id),
+        method: 'post',
+        wrapperClass: 'next-btn-wrapper ms-auto',
+        buttonClass: 'next',
+        text: 'next',
+        hidden: [{name: 'albumListData', value: artistAlbums.next}],
+        } %>
+    <%if(artistAlbums.prev){ %>
+    <%- include('../elements/siteButton.ejs', {data: previousData}) %>
+    <%} %>
+    <%if(artistAlbums.next){ %>
+    <%- include('../elements/siteButton.ejs', {data: nextData}) %>
+    <%} %>
+  </div>
+</div>
